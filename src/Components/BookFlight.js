@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import moment from 'moment';
 import { BookingContext } from "../Contexts/bookingContext";
 import { ActiveMenuContext } from "../Contexts/activeMenuContext";
@@ -47,7 +47,9 @@ const airlines = ["Indigo", "Vistara", "AirIndia", "GoAir", "Spicejet"];
 
 export const BookFlight = () => {
 
-    const {isBooked} = useContext(BookingContext);
+    const history = useHistory();
+
+    const {user, bookTicket} = useContext(BookingContext);
     const {setActiveMenu} = useContext(ActiveMenuContext);
 
     const [componentSize, setComponentSize] = useState('default');
@@ -56,36 +58,23 @@ export const BookFlight = () => {
         setComponentSize(size);
     };
 
-    const [from, setFrom] = useState(airports[0]);
-    const [to, setTo] = useState(airports[3]);
-
-    const onSelectFrom = (val) => {
-        const data = val.split(',');
-        setFrom({ airport: data[0], city: data[1]});
-    }
-
-    const onSelectTo = (val) => {
-        const data = val.split(',');
-        setTo({ airport: data[0], city: data[1]});
-    }
-
-
     const renderFrom = airports.map((val, key) => <Select.Option key={key} value={`${val.airport}, ${val.city}`}>{val.airport}, {val.city}</Select.Option>);
     const renderTo = airports.map((val, key) => <Select.Option key={key} value={`${val.airport}, ${val.city}`}>{val.airport}, {val.city}</Select.Option>);
     const renderAirlines = airlines.map((val, key) => <Select.Option key={key} value={val}>{val}</Select.Option>);
 
     
     function disabledDate(current) {
-        // Can not select days before today and today
         return current && current < moment().endOf('day');
     }
 
-    function handleBooking() {
+    function handleSubmit(values) {
+        let order = Object.assign({}, {from: values.from, to: values.to, date: values.date})
+        bookTicket(order);
         message.success('Your flight booked successfully');
+        history.push("/Details");
     }
 
-    // if(props.isBooked) {
-    if (isBooked) {
+    if (user.bookings.length !== 0) {
         return <>
                 <h1>Book Flight</h1>
                 <p>Seems like you already have a booking...</p>   
@@ -111,6 +100,7 @@ export const BookFlight = () => {
             }}
             onValuesChange={onFormLayoutChange}
             size={componentSize}
+            onFinish={handleSubmit}
         >
             <Form.Item name="size">
                 <Radio.Group>
@@ -120,25 +110,25 @@ export const BookFlight = () => {
                 </Radio.Group>
             </Form.Item>
             <Form.Item label="Airline">
-                <Select value={airlines[0]}>
+                <Select>
                     {renderAirlines}
                 </Select>
             </Form.Item>
-            <Form.Item  label="From">
-                <Select value={`${from.airport}, ${from.city}`} onChange={onSelectFrom} label="From">
+            <Form.Item  name="from" label="From">
+                <Select label="From">
                     {renderFrom}
                 </Select>
             </Form.Item>
-            <Form.Item value={`${to.airport}, ${to.city}`} onChange={onSelectTo} label="To">
-            <Select>
-                {renderTo}
-            </Select>
+            <Form.Item name="to"  label="To">
+                <Select>
+                    {renderTo}
+                </Select>
             </Form.Item>
-            <Form.Item label="Select Date">
+            <Form.Item name="date" label="Select Date">
                 <DatePicker disabledDate={disabledDate}/>
             </Form.Item>
             <Form.Item>
-                    <Button onClick={handleBooking}>Confirm Booking</Button>
+                    <Button htmlType="submit" >Confirm Booking</Button>
             </Form.Item>
         </Form>
         </>

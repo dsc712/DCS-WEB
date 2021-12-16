@@ -1,5 +1,4 @@
 import React, { Component, useContext } from 'react';
-import { BookingContext } from "../Contexts/bookingContext";
 import { ActiveMenuContext } from "../Contexts/activeMenuContext";
 
 import { Layout, Menu, Switch } from 'antd';
@@ -9,12 +8,7 @@ const { Header } = Layout;
 
 
 export const Navbar = () => {
-    const { isBooked, bookingToggle } = useContext(BookingContext);
     const { active, setActiveMenu } = useContext(ActiveMenuContext);
-
-    const onChange = () => {
-        bookingToggle(!isBooked);
-    }
 
     return (
         <Header>
@@ -34,12 +28,11 @@ export const Navbar = () => {
                         Booking Details
                     </Link>
                 </Menu.Item>
-                {/* <Menu.Item key="4">
-                    <Link to="/nav3">
-                        Nav 3
+                <Menu.Item key="4" onClick={(e) => {setActiveMenu("4")}}>
+                    <Link to="/Passenger">
+                        Profile
                     </Link>
-                </Menu.Item> */}
-                <Switch defaultChecked onChange={onChange} />
+                </Menu.Item>
             </Menu>
         </Header>
     )

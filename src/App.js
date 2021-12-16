@@ -10,7 +10,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Home } from './Components/Home';
 import { BookFlight } from './Components/BookFlight';
 import { Details } from './Components/Details';
-import { Nav3 } from './Components/Nav3';
+import { Passenger } from './Components/Passenger';
+import { Register } from './Components/Register';
 
 import { Layout } from 'antd';
 const { Content, Footer } = Layout;
@@ -36,8 +37,11 @@ export const App = () => {
                     <Route path="/Details">
                       <Details />
                     </Route>
-                    <Route path="/nav3">
-                      <Nav3 />
+                    <Route path="/Passenger">
+                      <Passenger />
+                    </Route>
+                    <Route path="/Register">
+                      <Register />
                     </Route>
                   </Switch>
               </div>
