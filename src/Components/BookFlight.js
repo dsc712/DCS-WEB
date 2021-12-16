@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
+import { BookingContext } from "../Contexts/bookingContext";
+import { ActiveMenuContext } from "../Contexts/activeMenuContext";
 
 import {
   Form,
@@ -42,7 +44,11 @@ const airports = [
 const airlines = ["Indigo", "Vistara", "AirIndia", "GoAir", "Spicejet"];
 
 
-export const BookFlight = (props) => {
+
+export const BookFlight = () => {
+
+    const {isBooked} = useContext(BookingContext);
+    const {setActiveMenu} = useContext(ActiveMenuContext);
 
     const [componentSize, setComponentSize] = useState('default');
 
@@ -78,12 +84,13 @@ export const BookFlight = (props) => {
         message.success('Your flight booked successfully');
     }
 
-    if(props.isBooked) {
+    // if(props.isBooked) {
+    if (isBooked) {
         return <>
                 <h1>Book Flight</h1>
                 <p>Seems like you already have a booking...</p>   
                 <Link to="/Details">
-                    <Button>Your bookings</Button>
+                    <Button onClick={() => {setActiveMenu("3")}}>Your bookings</Button>
                 </Link>
         </>
     }
