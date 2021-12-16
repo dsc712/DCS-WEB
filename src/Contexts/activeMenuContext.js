@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 
 export const ActiveMenuContext = createContext();
 const ActiveMenuContextProvider = props => {
-  const [active, setActive] = useState(["Home"]);
+  const [active, setActive] = useState(["1"]);
   const setActiveMenu = (value) => {
     let a = [];
     a.push(value);
