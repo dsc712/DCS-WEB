@@ -1,36 +1,19 @@
 ## Welcome to Departure Control System's Web Portal
 
-You can use the [editor on GitHub](https://github.com/dsc712/DCS-WEB/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+You can acces the portal using this link - https://dsc712.github.io/DCS-WEB/ 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+DCS web can be used to book/cancel flight tickets. 
 
-### Markdown
+### Contribution guidlines
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Fork the repo.
+2. Create a new branch. 
+3. Create a PR to main branch of https://github.com/dsc712/DCS-WEB
 
-```markdown
-Syntax highlighted code block
+## Create an issue
+1. Using templates provided.
+2. Do proper labelling. Read label description for more details.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dsc712/DCS-WEB/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
