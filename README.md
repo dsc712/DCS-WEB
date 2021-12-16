@@ -1,6 +1,6 @@
 ## Welcome to Departure Control System's Web Portal
 
-You can acces the portal using this link - https://dsc712.github.io/DCS-WEB/ 
+You can acces the portal using this link - https://dcs-web.surge.sh/Home
 
 A departure control system (DCS) automates processing an airline's airport management operation, which includes managing the information required for airport check-in, printing boarding cards, baggage acceptance, boarding, load control and aircraft checks.
 
