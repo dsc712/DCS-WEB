@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import {Link} from 'react-router-dom';
+
+import { BookingContext } from "../Contexts/bookingContext";
 import {Button, Descriptions, message} from 'antd';
 
 
 
 export const Details = (props) => {
+    const {isBooked, bookingToggle} = useContext(BookingContext);
+
     function handleClick() {
         message.success("Boarding Pass sent on registered email")
     }
 
-    if(!props.isBooked) {
+    if(!isBooked) {
         return <>
         <h4>You don't have any booking yet...</h4>
         <Link to="/BookFlight">
@@ -20,14 +24,13 @@ export const Details = (props) => {
     return (
         <>
          <Descriptions title="Booking Info">
-            <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
-            <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
-            <Descriptions.Item label="Live">Hangzhou, Zhejiang</Descriptions.Item>
-            <Descriptions.Item label="Remark">empty</Descriptions.Item>
-            <Descriptions.Item label="Address">
-            No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-            </Descriptions.Item>
+            <Descriptions.Item label="UserName">Devyendu Shekhar</Descriptions.Item>
+            <Descriptions.Item label="Telephone">+91 8076851xxx</Descriptions.Item>
+            <Descriptions.Item label="From">Kempegowda International Airport, Bengaluru</Descriptions.Item>
+            <Descriptions.Item label="To">Indira Gandhi International Airport, Delhi</Descriptions.Item>
+            <Descriptions.Item label="Date">12-12-2020</Descriptions.Item>
          </Descriptions>
+       
          <Button onClick={handleClick}>Get Boarding Pass</Button>
         </>
     )
