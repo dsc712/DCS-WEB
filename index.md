@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to Departure Control System's Web Portal
 
 You can use the [editor on GitHub](https://github.com/dsc712/DCS-WEB/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
