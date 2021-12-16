@@ -5,7 +5,7 @@ import ActiveMenuContextProvider from "./Contexts/activeMenuContext";
 
 
 import { Navbar } from "./Components/Navbar";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import { Home } from './Components/Home';
 import { BookFlight } from './Components/BookFlight';
@@ -43,6 +43,7 @@ export const App = () => {
                     <Route path="/Register">
                       <Register />
                     </Route>
+                    <Redirect to="/" />
                   </Switch>
               </div>
             </Content>
