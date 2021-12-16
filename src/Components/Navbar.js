@@ -1,11 +1,9 @@
-import React, { Component, useContext } from 'react';
+import React, { useContext } from 'react';
 import { ActiveMenuContext } from "../Contexts/activeMenuContext";
 
-import { Layout, Menu, Switch } from 'antd';
+import { Layout, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 const { Header } = Layout;
-
-
 
 export const Navbar = () => {
     const { active, setActiveMenu } = useContext(ActiveMenuContext);
@@ -14,7 +12,7 @@ export const Navbar = () => {
         <Header>
             <Menu theme="dark" mode="horizontal" selectedKeys={active} style={{ position: 'fixed', zIndex: 1, width: '100%' }} >
                 <Menu.Item key="1" onClick={(e) => {setActiveMenu("1")}}>
-                    <Link to="/">
+                    <Link to="/Home">
                         Home
                     </Link>
                 </Menu.Item>
@@ -30,7 +28,7 @@ export const Navbar = () => {
                 </Menu.Item>
                 <Menu.Item key="4" onClick={(e) => {setActiveMenu("4")}}>
                     <Link to="/Passenger">
-                        Profile
+                        Account
                     </Link>
                 </Menu.Item>
             </Menu>

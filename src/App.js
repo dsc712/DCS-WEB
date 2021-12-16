@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import BookingContextProvider from "./Contexts/bookingContext";
 import ActiveMenuContextProvider from "./Contexts/activeMenuContext";
@@ -28,7 +28,7 @@ export const App = () => {
             <Content style={{ padding: '0 50px' }}>
               <div className="site-layout-content">
                   <Switch>
-                    <Route exact path="/">
+                    <Route path="/Home">
                       <Home />
                     </Route>
                     <Route path="/BookFlight">
@@ -43,7 +43,7 @@ export const App = () => {
                     <Route path="/Register">
                       <Register />
                     </Route>
-                    <Redirect to="/" />
+                    <Redirect to="/Passenger" />
                   </Switch>
               </div>
             </Content>
@@ -54,4 +54,3 @@ export const App = () => {
     </ActiveMenuContextProvider>
   );
 };
-

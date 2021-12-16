@@ -34,6 +34,7 @@ export const Passenger = () => {
         // set auth
         if(auth.length !== 0) {
             setActiveUser(auth[0])
+            setActiveMenu("2");
             history.push("/BookFlight");
         } else { // redirect if user with ID not found
             setActiveMenu("4");

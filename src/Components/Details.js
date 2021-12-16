@@ -32,6 +32,7 @@ export const Details = () => {
          <Descriptions title="Booking Details">
             <Descriptions.Item label="Passenger ID">{user.passengerID}</Descriptions.Item>
             <Descriptions.Item label="Name">{user.name}</Descriptions.Item>
+            <Descriptions.Item label="Airline">{user.bookings[0].airline}</Descriptions.Item>
             <Descriptions.Item label="Telephone">{user.telephone}</Descriptions.Item>
             <Descriptions.Item label="From">{user.bookings[0].from}</Descriptions.Item>
             <Descriptions.Item label="To">{user.bookings[0].to}</Descriptions.Item>

@@ -1,49 +1,18 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import moment from 'moment';
 import { BookingContext } from "../Contexts/bookingContext";
 import { ActiveMenuContext } from "../Contexts/activeMenuContext";
+import {airlines, airports} from "../db";
 
 import {
   Form,
-  Input,
   Button,
   Radio,
   Select,
   DatePicker,
   message
 } from 'antd';
-
-const airports = [
-    {
-        city: "Bengaluru",
-        airport: "Kempegowda International Airport"
-    },
-    {
-        city: "Mumbai",
-        airport: "Chhatrapati Shivaji Maharaj International Airport"
-    },
-    {
-        city: "Pune",
-        airport: "Pune Airport"
-    },
-    {
-        city: "Delhi",
-        airport: "Indira Gandhi International Airport"
-    },
-    {
-        city: "Ahmedabad",
-        airport: "Sardar Vallabhbhai Patel International Airport"
-    },
-    {
-        city: "Shimla",
-        airport: "	Shimla Airport"
-    }];
-
-
-const airlines = ["Indigo", "Vistara", "AirIndia", "GoAir", "Spicejet"];
-
-
 
 export const BookFlight = () => {
 
@@ -68,7 +37,7 @@ export const BookFlight = () => {
     }
 
     function handleSubmit(values) {
-        let order = Object.assign({}, {from: values.from, to: values.to, date: values.date})
+        let order = Object.assign({}, {airline: values.airline, from: values.from, to: values.to, date: values.date})
         bookTicket(order);
         message.success('Your flight booked successfully');
         history.push("/Details");
@@ -109,18 +78,18 @@ export const BookFlight = () => {
                     <Radio.Button value="large">Large</Radio.Button>
                 </Radio.Group>
             </Form.Item>
-            <Form.Item label="Airline">
-                <Select>
+            <Form.Item name="airline" label="Airline">
+                <Select placeholder={"Select an airline"}>
                     {renderAirlines}
                 </Select>
             </Form.Item>
-            <Form.Item  name="from" label="From">
-                <Select label="From">
+            <Form.Item   name="from" label="From">
+                <Select placeholder={"Select source airport"}  label="From">
                     {renderFrom}
                 </Select>
             </Form.Item>
-            <Form.Item name="to"  label="To">
-                <Select>
+            <Form.Item  name="to"  label="To">
+                <Select placeholder={"Select destination airport"}>
                     {renderTo}
                 </Select>
             </Form.Item>
