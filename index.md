@@ -1,6 +1,6 @@
 ## Welcome to Departure Control System's Web Portal
 
-You can acces the portal using this link - https://dsc712.github.io/DCS-WEB/ 
+You can acces the portal using this link - https://dcs-web.surge.sh/Home
 
 DCS web can be used to book/cancel flight tickets. 
 
